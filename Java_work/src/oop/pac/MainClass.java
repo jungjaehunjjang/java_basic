@@ -17,6 +17,9 @@ public class MainClass {
 		oop.juice.Apple a2 = new oop.juice.Apple();
 		Banana b = new Banana();
 		Melon m = new Melon();
+		
+		
+		
 	}
 
 }

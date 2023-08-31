@@ -16,9 +16,9 @@ public class MyBirth {
 	
 	/*
 	 - 정보 은닉은 데이터에 접근 제한을 걸어서 정보를 보호하는 것이 목적이지만
-	 	private 설정해써니 데이터 접근 자체가 불가능해집니다.
+	 	private 설정했더니 데이터 접근 자체가 불가능해집니다.
 	 	
-	 - 따라서 데이터이 유효성을 검증할 수 있는 제어문이 포함된
+	 - 따라서 데이터의 유효성을 검증할 수 있는 제어문이 포함된
 	  	메서드를 사용하여 데이터의 접근을 허용하도록 설계하는데,
 	  	이 때 사용하는 메서드를 getter/ setter 메서드라고 부릅니다.
 	  	
@@ -83,6 +83,14 @@ public class MyBirth {
 		if(day < 1 || day > 31) {
 			System.out.println("잘못된 일 입력입니다.");
 		}else {
+			if(this.month == 0) {
+				System.out.println("일자를 입력하기 이해서는 월 입력이 선행되어야 합니다.");
+				return;
+			}
+			if(!isValidateMonth(day)) {
+				System.out.println("월에 따른 일자가 올바르지 않습니다.");
+				return;
+			}
 			this.day = day;
 		}
 	}
@@ -96,10 +104,29 @@ public class MyBirth {
 		public void birthInfo() {
 			//year, month, day 셋 중 단 하나라도 제대로 값이 셋팅되지 않았다면
 			//츌력을 해 주지 않겠다.
+			if(this.year == 0 || this.month == 0 || this.day == 0) {
+				System.out.println("날짜 필드 중에 초기화 되지 않은 데이터가 있습니다.");
+				return;
+			}
+			
+			System.out.printf("내 생일은 %d년 %d월 %d일 입니다.\n"
+					, this.year, this.month, this.day);
 		}
 		
-		public void isValidateMonth() {
+		public boolean isValidateMonth(int day) {
 			// 각 월에 적합한 일자가 세팅이 되어 있는지를 판별하는 메서드
+			switch(this.month) {
+			case 2:
+				if(day > 28) {
+					return false;
+				}
+			case 4: case 6: case 9: case 11:
+				if(day > 30) {
+					return false;
+				}
+				default:
+					return true;
+			}
 		}
 		
 		/*

@@ -9,7 +9,7 @@ package oop.final_.method;
 - 대표적인 final 클래스는 String 입니다.
 */
 
-public class Parent {
+	public class Parent {
 
 	void method1( ) {}
 	void method2( ) {}

@@ -1,13 +1,12 @@
 package oop.abs.quiz;
 
+import java.net.MulticastSocket;
+
 public class MainClass {
 
 	public static void main(String[] args) {
 
-		
-		
-
-/*
+		/*
          - Shape를 상속받는 Circle과 Rect 클래스를 생성해 주세요.
          
          - Circle 객체를 생성할 때, 반지름도 받아서 초기화 할 수 있는
@@ -20,6 +19,15 @@ public class MainClass {
          - MainClass에서 길이가 5인 정사각형,
           반지름이 4인 원의 모든 내용을 호출해 보세요.
          */
+	
+		Shape r = new Rect("정사각형", 5);
+		System.out.println("도형의 이름: " + r.getName());
+		System.out.println("넓이: " + r.getArea());
+		
+		System.out.println("-------------------------------------");
+		
+		Shape c = new Circle("원", 4);
+		System.out.println(c.getName());
+		System.out.printf("넓이: %.2f", c.getArea());
 	}
-
 }

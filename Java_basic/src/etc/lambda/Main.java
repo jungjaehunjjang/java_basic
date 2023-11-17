@@ -33,7 +33,7 @@ public class Main {
             System.out.println(filteredColorApple);
         }
 
-        System.out.println("==============원하는 조건으로 사과 필터링");
+        System.out.println("==============원하는 조건으로 사과 필터링===============");
 
         // 100g 이하인 사과를 필터링
         List<Apple> apples1 = FilterApple.filterApple(appleBasket, new LightApplePredicate());
